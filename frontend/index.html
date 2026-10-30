@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Page Pilot answers questions from a product manual and cites its source pages."
+    />
+    <title>Page Pilot — Ask your manual</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Page Pilot home">
+          <span class="brand-mark" aria-hidden="true">P</span>
+          <span>Page Pilot</span>
+        </a>
+        <div class="server-status" id="server-status" aria-live="polite">
+          <span class="status-dot"></span>
+          <span>Connecting</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="eyebrow">Grounded answers · Verifiable sources</div>
+          <h1 id="hero-title">Ask the manual.<br /><span>Skip the searching.</span></h1>
+          <p>
+            Page Pilot finds the most relevant passages, answers only from the
+            manual, and shows the pages behind every supported response.
+          </p>
+        </section>
+
+        <section class="workspace" aria-label="Ask Page Pilot">
+          <form id="ask-form" class="question-form">
+            <label for="question">Your question</label>
+            <div class="input-wrap">
+              <textarea
+                id="question"
+                name="question"
+                rows="3"
+                required
+                placeholder="e.g. Cum pot verifica grupa sanguină?"
+              ></textarea>
+              <div class="form-footer">
+                <span class="shortcut">⌘ + Enter to ask</span>
+                <button id="ask-button" type="submit">
+                  <span class="button-label">Ask Page Pilot</span>
+                  <span class="button-arrow" aria-hidden="true">→</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="examples" aria-label="Example questions">
+            <span>Try an example</span>
+            <button type="button" data-question="Cum pot verifica grupa sanguină?">
+              Blood group
+            </button>
+            <button type="button" data-question="Care este numărul Healthline pentru urgențe?">
+              Healthline
+            </button>
+            <button type="button" data-question="Este inclus vaccinul antigripal?">
+              Not in manual
+            </button>
+          </div>
+
+          <div id="message" class="message" role="alert" hidden></div>
+
+          <article id="result" class="result-card" aria-live="polite" hidden>
+            <div class="result-header">
+              <div>
+                <span id="answer-status" class="answer-status"></span>
+                <h2>Answer</h2>
+              </div>
+              <span class="retrieval-label">Top 2 chunks</span>
+            </div>
+            <p id="answer-text" class="answer-text"></p>
+
+            <div class="sources-block">
+              <span class="sources-title">Source pages</span>
+              <div id="source-pages" class="source-pages"></div>
+            </div>
+
+            <details class="retrieval-details">
+              <summary>Retrieval details</summary>
+              <p>
+                Context was retrieved from pages
+                <strong id="retrieved-pages"></strong>. Retrieved pages may
+                include context that was not cited in the final answer.
+              </p>
+            </details>
+          </article>
+        </section>
+
+        <section class="trust-strip" aria-label="How Page Pilot works">
+          <div><strong>01</strong><span>Hybrid retrieval</span></div>
+          <div><strong>02</strong><span>Grounded generation</span></div>
+          <div><strong>03</strong><span>Page citations</span></div>
+        </section>
+      </main>
+
+      <footer>
+        <span>Built as an AI Engineering portfolio project.</span>
+        <a href="/docs">API docs</a>
+      </footer>
+    </div>
+  </body>
+</html>

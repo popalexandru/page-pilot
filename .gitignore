@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+manuals/*.pdf
+/pages.json
+/chunks.json
+/semantic_index.npz
+.env
+.pytest_cache/
+.idea/
+.vscode/
+*.log

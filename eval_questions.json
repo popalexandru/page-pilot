@@ -1,0 +1,40 @@
+[
+  {
+    "question": "Care este numarul de telefon Healthline pentru urgente?",
+    "expected_pages": [1],
+    "relevant_chunks": [{"page_number": 1, "chunk_index": 5}]
+  },
+  {
+    "question": "Pentru ce interval de varsta este abonamentul Junior Plus?",
+    "expected_pages": [2],
+    "relevant_chunks": [{"page_number": 2, "chunk_index": 0}]
+  },
+  {
+    "question": "In ce orase exista puncte de recoltare?",
+    "expected_pages": [2],
+    "relevant_chunks": [{"page_number": 2, "chunk_index": 1}]
+  },
+  {
+    "question": "Este inclusa determinarea grupei sanguine si a factorului Rh?",
+    "expected_pages": [3],
+    "relevant_chunks": [{"page_number": 3, "chunk_index": 2}]
+  },
+  {
+    "question": "Este inclusa hemoleucograma completa?",
+    "expected_pages": [4],
+    "relevant_chunks": [{"page_number": 4, "chunk_index": 1}]
+  },
+  {
+    "question": "Este inclusa analiza TSH?",
+    "expected_pages": [5],
+    "relevant_chunks": [{"page_number": 5, "chunk_index": 0}]
+  },
+  {
+    "question": "Cui se adreseaza abonamentul si in ce orase exista puncte de recoltare?",
+    "expected_pages": [2],
+    "relevant_chunks": [
+      {"page_number": 2, "chunk_index": 0},
+      {"page_number": 2, "chunk_index": 1}
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "question": "Care este numarul de telefon Healthline pentru urgente?",
+    "expected_answerable": true,
+    "expected_pages": [1]
+  },
+  {
+    "question": "Pentru ce interval de varsta este abonamentul Junior Plus?",
+    "expected_answerable": true,
+    "expected_pages": [2]
+  },
+  {
+    "question": "Este inclusa analiza TSH?",
+    "expected_answerable": true,
+    "expected_pages": [5]
+  },
+  {
+    "question": "Abonamentul include vaccinul antigripal?",
+    "expected_answerable": false,
+    "expected_pages": []
+  },
+  {
+    "question": "Care este pretul lunar al abonamentului?",
+    "expected_answerable": false,
+    "expected_pages": []
+  },
+  {
+    "question": "Care este programul Policlinicii Pipera?",
+    "expected_answerable": false,
+    "expected_pages": []
+  }
+]
