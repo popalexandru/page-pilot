@@ -20,6 +20,8 @@ Page Pilot is a learning project for building an assistant that answers customer
 - Display each result with its score, page number, and chunk index.
 - Report missing files, unreadable PDFs, pages without extractable text, and page-level extraction failures.
 - Expose `GET /health` and `POST /ask` through a small FastAPI application.
+- Upload one active PDF through `POST /manual` and rebuild its local index automatically.
+- Report the active manual, page count, and chunk count through `GET /manual`.
 - Serve a responsive browser demo directly from FastAPI without a frontend build step.
 - Evaluate whether hybrid retrieval finds manually verified source pages.
 - Verify the small units of behavior with standard-library tests.
@@ -129,6 +131,21 @@ uvicorn api:app --reload
 ```
 
 Open the demo at `http://127.0.0.1:8000`. Interactive API documentation remains available at `http://127.0.0.1:8000/docs`.
+
+Use **Upload PDF** in the demo to select the active manual. Page Pilot extracts its text, creates chunks and embeddings, and enables questions when indexing finishes. Uploading another valid PDF replaces the active manual. If processing fails, the previous manual remains available.
+
+Runtime files are stored locally and ignored by Git:
+
+```text
+data/
+├── active_manual.pdf
+├── pages.json
+├── chunks.json
+├── semantic_index.npz
+└── manual.json
+```
+
+The upload limit is 20 MB. PDFs without extractable text are rejected because OCR is not part of this project.
 
 You can also call the endpoint directly:
 
@@ -253,7 +270,7 @@ The response uses a Pydantic Structured Outputs schema with `answerable`, `answe
 
 ## Data flow
 
-`PDF path` -> chunks -> persistent semantic index -> hybrid retrieval -> top excerpts -> OpenAI Responses API -> grounded answer with source pages -> HTTP JSON response.
+`Uploaded PDF` -> pages -> chunks -> persistent semantic index -> hybrid retrieval -> top excerpts -> OpenAI Responses API -> grounded answer with source pages -> browser response.
 
 The PDF page index used by Python starts at 0, so the program adds 1 before displaying it to match the numbering users expect.
 

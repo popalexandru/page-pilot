@@ -11,3 +11,4 @@ manuals/*.pdf
 .idea/
 .vscode/
 *.log
+/data/

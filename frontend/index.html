@@ -8,8 +8,8 @@
       content="Page Pilot answers questions from a product manual and cites its source pages."
     />
     <title>Page Pilot — Ask your manual</title>
-    <link rel="stylesheet" href="/static/styles.css" />
-    <script src="/static/app.js" defer></script>
+    <link rel="stylesheet" href="/static/styles.css?v=2" />
+    <script src="/static/app.js?v=2" defer></script>
   </head>
   <body>
     <div class="page-shell">
@@ -35,6 +35,26 @@
         </section>
 
         <section class="workspace" aria-label="Ask Page Pilot">
+          <section class="manual-panel" aria-labelledby="manual-title">
+            <div class="manual-icon" aria-hidden="true">PDF</div>
+            <div class="manual-info">
+              <span class="manual-kicker" id="manual-title">Active manual</span>
+              <strong id="manual-name">Checking for a manual…</strong>
+              <span id="manual-meta">Questions unlock when the index is ready.</span>
+            </div>
+            <label class="upload-button" for="manual-file">
+              <span id="upload-label">Upload PDF</span>
+              <input
+                id="manual-file"
+                type="file"
+                accept="application/pdf,.pdf"
+                hidden
+              />
+            </label>
+          </section>
+
+          <div id="manual-message" class="manual-message" role="status" hidden></div>
+
           <form id="ask-form" class="question-form">
             <label for="question">Your question</label>
             <div class="input-wrap">
@@ -43,11 +63,12 @@
                 name="question"
                 rows="3"
                 required
-                placeholder="e.g. Cum pot verifica grupa sanguină?"
+                disabled
+                placeholder="e.g. Despre ce este acest document?"
               ></textarea>
               <div class="form-footer">
                 <span class="shortcut">⌘ + Enter to ask</span>
-                <button id="ask-button" type="submit">
+                <button id="ask-button" type="submit" disabled>
                   <span class="button-label">Ask Page Pilot</span>
                   <span class="button-arrow" aria-hidden="true">→</span>
                 </button>
@@ -57,14 +78,14 @@
 
           <div class="examples" aria-label="Example questions">
             <span>Try an example</span>
-            <button type="button" data-question="Cum pot verifica grupa sanguină?">
-              Blood group
+            <button type="button" data-question="Despre ce este acest document?">
+              Overview
             </button>
-            <button type="button" data-question="Care este numărul Healthline pentru urgențe?">
-              Healthline
+            <button type="button" data-question="Care sunt principalele instrucțiuni din document?">
+              Instructions
             </button>
-            <button type="button" data-question="Este inclus vaccinul antigripal?">
-              Not in manual
+            <button type="button" data-question="Ce informații de contact sunt menționate?">
+              Contact details
             </button>
           </div>
 

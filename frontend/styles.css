@@ -152,6 +152,91 @@ a {
   backdrop-filter: blur(18px);
 }
 
+.manual-panel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: rgba(244, 241, 233, 0.55);
+}
+
+.manual-icon {
+  display: grid;
+  width: 46px;
+  height: 52px;
+  place-items: center;
+  border-radius: 8px 8px 8px 2px;
+  color: white;
+  background: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.manual-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.manual-kicker {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.manual-info strong {
+  overflow: hidden;
+  font-size: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.manual-info > span:last-child {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.upload-button {
+  padding: 10px 14px;
+  border: 1px solid #a8bdb5;
+  border-radius: 10px;
+  color: var(--green-dark);
+  background: white;
+  font-size: 13px;
+  font-weight: 720;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.upload-button:hover {
+  border-color: var(--green);
+  background: #f1f7f4;
+}
+
+.manual-message {
+  margin: -14px 0 24px;
+  padding: 11px 13px;
+  border: 1px solid #bed1c9;
+  border-radius: 10px;
+  color: var(--green-dark);
+  background: #eef6f2;
+  font-size: 13px;
+}
+
+.manual-message.error {
+  border-color: #edc2b9;
+  color: #843b30;
+  background: #fff0ed;
+}
+
 .question-form label {
   display: block;
   margin-bottom: 10px;
@@ -259,6 +344,11 @@ textarea::placeholder {
 .examples button:hover {
   border-color: #9eb5ac;
   color: var(--green);
+}
+
+.examples button:disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
 }
 
 .message {
@@ -446,6 +536,15 @@ footer a {
 
   .workspace {
     border-radius: 20px;
+  }
+
+  .manual-panel {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .upload-button {
+    grid-column: 1 / -1;
+    text-align: center;
   }
 
   .shortcut {
